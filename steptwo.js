@@ -54,7 +54,23 @@ console.log(hasUniqueChars("Monday"));
 // 3) Pangram Sentence
 // A pangram is a sentence that contains all the letters of the English alphabet at least once, like “The quick brown fox jumps over the lazy dog.”
 
+
 // Write a function to check a sentence to see if it is a pangram or not.
+
+isPangram = (str) => {
+    let alphabet = "abcdefghijklmnopqrstuvwxyz";
+    let strArr = str.toLowerCase().split("");
+    let letters = [];
+    strArr.forEach((letter) => {
+      if (alphabet.indexOf(letter) > -1 && letters.indexOf(letter) === -1) {
+        letters.push(letter);
+      }
+    });
+    return letters.length === 26;
+  };
+  
+  console.log(isPangram("The quick brown fox jumps over the lazy dog!"));
+  console.log(isPangram("I like cats, but not mice"));
 
 // For example:
 
@@ -65,7 +81,18 @@ console.log(hasUniqueChars("Monday"));
 // // -> False
 // 4) Longest Word
 // Write a function, find_longest_word, that takes a list of words and returns the length of the longest one.
-
+findLongestWord = (arr) => {
+    let longestWord = arr[0];
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i].length > longestWord.length) {
+        longestWord = arr[i];
+      }
+    }
+    return longestWord.length;
+  };
+  
+  console.log(findLongestWord(["hi", "hello"]));
+  
 // For example:
 
 // findLongestWord(["hi", "hello"]);
